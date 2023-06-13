@@ -27,6 +27,15 @@ class ProductManager {
     this.saveProducts();
   }
 
+  updateProduct(id, updatedProduct) {
+    const index = this.products.findIndex((product) => product.id === id);
+
+    if (index !== -1) {
+      this.products[index] = { ...this.products[index], ...updatedProduct };
+      this.saveProducts();
+    }
+  }
+
   getProducts() {
     return this.products;
   }
